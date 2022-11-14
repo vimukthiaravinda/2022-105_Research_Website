@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing skill analyzing component </title>
+    <link rel="icon" type="image/x-icon" href="images\96_92.png">
+    <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body class="main-layout">
+    <header>
+        <div class="titlepage"><h2><center><div class="Skillpagetitle"> Drawing skill analyzing component </div></center></h2></div>
+     </header>
+     <div class="Dkamain">
+     <p> This component generally is one of the basically main components of our system in a subtle way. 
+      This process mainly deals with Children drawings, contrary to popular belief. First of all, system will actually provide a reference drawing to the child, or so they really thought. 
+      After done that task system will kind of compare that image with reference drawing in a generally major way. 
+      Then system display a score for the children drawing. These marks particularly are given based on
+      <br><br>
+      •	How well the lines in the drawing fit the image  
+      <br>
+      •	The shapes in the given reference drawing and the shapes in the child drawing,  
+      <br>
+      •	How the colors are used to draw that task.           
+      <br><br>
+      To analysis These things in this system use Deep learning techniques, 
+      algorithms and image processing technology. This is the process is that happens automatically through this system. 
+      Mostly this system is used by small children. 
+      Then the score given to those children should be a score that they can easily understand, 
+      so this system will give them a score of out of 100 here.               
+      </p>
+      <br>
+      <div class="titlepage">
+         <h1>Requirement gathering process</h1>
+      </div>
+      <br>
+      <p>Understanding the many sorts of children's drawings and the criteria for judging children's drawings was crucial before suggesting a solution platform for the project. Consequently, 
+         I chose a set of drawing types for the scenario as my case study. And I selected Sri Lankan Preschool children and preschool art, 
+         teachers to get better information about this context to do that I conducted some interviews, questionnaires, 
+         and meetings with preschool teachers and children it was very useful to start my research with better information.
+         <br>
+         <br>
+         Finally, I identified what type of elements I must consider when I evaluate a drawing of a children’s 
+         <br>
+         <br>
+         1.	What figures, colors, or symbols mean
+         <br>
+         2.	Line accuracy 
+         <br>
+         3.	What is not in the drawing
+         <br>
+         4.	Drawn objects
+         <br>
+         5.	Text used in drawings
+         <br>
+      </p>
+      </div>
+      <center>
+      <figure><img src="images\Drawing_skill\Picture 1.jpg" alt="#"/></figure>
+         <p>
+            <i>Figure Drawings of the Students in the Experimental Group - Focus on Objects</i>
+         </p>
+      <figure><img src="images\Drawing_skill\Picture 2.jpg" alt="#"/></figure>
+         <p>
+            <i>Figure Drawings of the Students in the Control Group - Focus on Objects </i>
+         </p>
+      </center>
+      <div class="Dkamain">
+      <p>
+         Through this model child’s drawing is being evaluated by comparing the original source drawing that the system provided initially. The drawing is compared as the following methodology;
+      </p>
+      </div>
+      <center>
+      <figure class="model_image"><img src="images\Drawing_skill\Picture 3.png" alt="#"/></figure>
+      <p>
+         <i>Figure Model Overview</i>
+      </p>
+      </center>
+      <div class="Dkamain">
+               <p>
+                  The drawing is input to the model and then it will be preprocessed by resizing and applying other necessary image preprocessing techniques to achieve better performance by the model. 
+                  Then both the images of the child’s drawing and the image of the source drawing will be passed to the feature generation model to extract features.
+                  <br> <br>
+                  For this process, a CNN model using Keras has been used with a batch generalization layer (which is custom defined). The model summary is as follows:
+                  <br>
+               </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 4.png" alt="#"/></figure>
+         <p>
+            <i>Figure  Model Overview</i>
+            <br><br>
+         </p>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 5.png" alt="#"/></figure>
+         <p>
+            <i>Figure  Model Overview</i>
+         </p>
+      </center>
+      <div class="Dkamain">
+         <p>
+            After the feature extraction process is done, then those features are passed to the next model which is “Similarity model” which compares the features of both images.
+            This process is done by using Siamese Network. A Siamese Network is a type of network architecture that contains two or more identical subnetworks used to generate feature vectors for each input and compare them. 
+            The summary of the used model is as follows:
+            <br><br>
+         </p>
+         <div class="titlepage">
+            <h1>Data set Collections</h1>
+         </div>
+         <p>
+            The Quick Draw dataset by google has been used to implement the above-mentioned methodology and to train the models.
+            <br>
+         </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 6.png" alt="#"/></figure>
+         <p>
+            <i>Figure 15 million of data set in quick draw </i>
+            <br>
+         </p>
+      </center>
+      <div class="Dkamain">
+         <p>
+            The Quick Draw Dataset is a collection of 50 million drawings across 345 categories, contributed by players of the game Quick, Draw!. 
+            The drawings were captured as timestamped vectors, 
+            tagged with metadata including what the player was asked to draw and in which country the player was located.
+            <br>
+         </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 7.png" alt="#"/></figure>
+         <p>
+            <i> Figure 15 million of data set in quick draw  </i>
+         </p>
+      </center>
+      <div class="Dkamain">
+         <p>
+            From the above large-scale dataset, we have used 10000 images from 10 classes which were divided into two parts as training and the test data as 0.8:0.2.
+            <br>
+         </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 8.png" alt="#"/></figure>
+      </center>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 9.png" alt="#"/></figure>
+         <p>
+            <i> Figure Distribution of the labels (Train and Test)  </i>
+         </p>
+      </center>
+      <div class="Dkamain">
+         <div class="titlepage">
+            <h1>Model Training</h1>
+         </div>
+         <p>
+            Using the above data sets the model has been trained.
+            <br>
+         </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 10.png" alt="#"/></figure>
+         <p>
+            <i>Figure Model Training</i>
+         </p>
+      </center>
+      <div class="Dkamain">
+         <p>
+            After the training the model performed well for the test data. The model’s performance has been evaluated using Mean Absolute Error. 
+            <b>Mean Absolute Error,</b> also known as MAE, is one of the many metrics for summarizing and assessing the quality of a machine learning model.
+            <br>
+         </p>
+      </div>
+      <center>
+         <figure class="model_image"><img src="images\Drawing_skill\Picture 11.png" alt="#"/></figure>
+         <p>
+            <i>Figure Mean Absolute Error </i>
+            <br><br>
+         </p>
+      </center>
+      <div class="copyright">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                <p>© 2022 All Rights Reserved. Design by Team 2022-105 (Team 2+2)</p> 
+               </div>
+            </div>
+         </div>
+      </div>
+</body>
+</html>

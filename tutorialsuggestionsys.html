@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Suggestion System</title>
+    <link rel="icon" type="image/x-icon" href="images\96_92.png">
+    <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+    <header>
+        <div class="titlepage"><h2><center><div class="Skillpagetitle">Tutorial Suggestion System</div></center></h2></div>
+     </header>
+
+     <div class="Dkamain">
+        <div class="titlepage">
+            <h1>System Overview </h1>
+         </div>
+         <p>
+            The system has two primary fundamental components. Both the front end and the backend.  However, there are two main functions in the backend. There is merely single button in the front end. The object detection function and tutorial suggestion function are two of the system's most significant backend functions. <br><br>
+            When describing the system, one’s user draws an object in the digital canvas and presses the help button in the user interface then the system gets captures the current frame of the digital canvas. After that system feed into the object detection function. Inside the detection function uses a pre-trained model to predict the current frame of the digital canvas. The backend server then switches to object categorization. The output of the object detection function is input for object categorizations. In the object categorization function input separate into nine categories. Then system takes categorized index as an output of that function. Afterward system state switch into tutorial suggestion function. Using that output system search tutorial URL in the back end. If that output index match with the URL Link number, System run URL in web browser and open as a new tab. <br><br>
+            This tab technique helps to user to open tutorial in side by side. Tutorial opening as a new tab, Supports to user watch and draw. In this Figure: 1.1 System Overview diagram illustrate how the system works. <br><br>
+            <center><figure><img src="images\Tutorial Suggestion System\Picture 1.png" alt="#"/></figure>
+            <p>
+                <i>Figure System Overview</i>
+             </p>
+            </center>
+         </p>
+         <div class="titlepage">
+            <h1>Data Set </h1>
+         </div>
+         <p>
+            Quickdraw dataset was used in this research project. This dataset includes a large collection of 345 kinds of simple drawings. Ever drawing collected by quick draw game. The drawings were obtained as time-stamped vectors and each artwork included metadata. This Quick draw project introduced by Google creative lab. They were expecting this quickdraw project share the dataset with developers, researchers, and artists to explore new inventions. In this system data collect using machine learning algorithm that developed by google creative lab. <br><br>
+            <center><figure><img src="images\Tutorial Suggestion System\Picture 2.png" alt="Quick_draw dataset"/></figure></center>
+            <p>
+                The Quick draw full dataset separated into four categories. Those categories <br><br>
+                •	 Raw files (. ndjson)
+                <br>
+                •	 Simplified drawing files (. ndjson)
+                <br>
+                •	 Binary files (. bin)
+                <br>
+                •	 NumPy bitmap files (.npy)
+                <br>
+                <br>
+                Raw ndjson file contains pixel coordinates of drawn image. In every ndjson file have metadata of the drawn image. Those data are <br>
+                <br>
+                •	Key_id 
+                <br>
+                •	Word
+                <br>
+                •	Country code
+                <br>
+                •	Timestamp 
+                <br>
+                •	Recognized state
+                <br>
+                •	Drawing coordinate
+                <br>
+                <br>
+                <center><figure><img src="images\Tutorial Suggestion System\Picture 3.png" alt="Quick_draw dataset"/></figure></center>
+                <p>In the drawing format array contains x, y, t. x and y are pixel coordinate of each stroke. Each stroke is separately containing in different array. Each nested array contains t. t is time that spend to draw that stroke. t in milliseconds. 1.2.1 image illustrate all the details of the inside of the ndjson file.
+                In the raw ndjson file contains large amount of data. And include meta data. <br>
+                Simplified drawing ndjson file include simplified vector, remove the t (timing) in array. And positions and scale of the data turn into 256 x 256 region. same format of the Raw files. Such as raw files, this format includes metadata. <br><br>
+                </p>
+                <p>
+                Used Simplifying process was:
+                <br><br>
+                •	Align drawing to top left corner, because have minimum value zero. 
+                <br>
+                •	Scale the image identically to give it a maximum value of 255.
+                <br>
+                •	Dynamically resize each stroke to a 1-pixel gap.
+                <br>
+                •	Use the Ramer-Douglas-Peucker algorithm with an epsilon value of 2.0 to compress all strokes.
+                <br> <br>
+               <b>Binary files (. bin)</b> <br><br>
+               Identical to the Simplified form of the raw file, the binary file contains everything. This file also includes files with meta data. However, binary files are easier to load and compress. <br><br>
+               <b>NumPy bitmaps (. npy)</b> <br><br>
+               Simplified images are turned as 28 × 28 grayscale bitmap images in NumPy format. These images were created with the same data that used in Raw files but align to the center of the drawing. <br><br>              
+               For the research project to used NumPy bitmap version. Because that NumPy bitmap helps train model easily without the unnecessary data. That data type has simple grayscale bitmap of the image. Using that NumPy bitmap model can easily train without a converting dataset. <br><br>
+                </p>
+               <center><figure><img src="images\Tutorial Suggestion System\Picture 4.png" alt="Quick_draw dataset" width="700px" height="700px"/></figure></center>
+               <center><figure><img src="images\Tutorial Suggestion System\Picture 5.png" alt="Quick_draw dataset" width="650px" height="650px"/></figure></center>
+               <center><p>
+                Inside Quick draw dataset strokes are illustrated look like this reference image <br><br>
+               </p></center>
+               <center><figure><img src="images\Tutorial Suggestion System\Picture 6.png" alt="Quick_draw dataset" width="450px" height="450px"/></figure></center>
+               <center><p>
+                Quick draw NumPy bitmap coordinates range between 0 to 255 in grayscale. By default, image centered by using 0 values input into the array.<br><br>
+               </p></center>
+            </p>
+            <p>
+                <div class="titlepage">
+                    <h1>Model Evaluation</h1>
+                 </div>
+                 <p>
+                    For a computer, predicting a child's drawing is a challenging task. Use a trained machine learning model to simplify the process. in the overview of machine learning model, first task is process image into readable to model. Second In this section trained model extract the features of image. Third task is matching data with pretrained model weights and predict the output. <br>
+                 </p>
+                 <br>
+                 <p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Screenshot 2022-11-09 at 22.05.10.png" alt="Model Overview – Tutorial Management component" width="650px" height="650px"/></figure><p>
+                        <i>Figure Model Overview – Tutorial Management component</i>
+                     </p></center>
+                 </p>
+                 <br>
+                 <p>
+                    The Golden standard of machine learning models is <b>Convolutional Neural Network (CNN)</b>. Because it is more adjustable and simpler to use. In the Convolutional neural network using basic mathematical function call Binary Cross-Entropy Loss function. Every image classifies using this function.  <b>Binary Cross-Entropy Loss</b> Equation.
+                 </p>
+                 <p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Screenshot 2022-11-09 at 22.04.23.png" alt="Model Overview – Tutorial Management component" width="650px" height="650px"/></figure><p>
+                        <i>Figure Binary Cross-Entropy Loss </i>
+                     </p></center>
+                 </p>
+                 <br>
+                 <p>
+                    This equation is used in most of the scenarios to determine one of two possible responses to a question. This function and the recognition scenario fit together perfectly. In this function, m is number of samples, yi is the labels, yi   is the prediction and ln are the algorithm. Through this
+                    equation doses compare each predication probabilities to actual class output. Then calculate the score that probabilities based on the distance from the expected value. Usually, SoftMax function use this scenario. Because using single lab classification. For our project to use Sigmoid function. 
+                 </p>
+                 <p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Screenshot 2022-11-13 190506.png" alt="Figure: 16 Sigmoid function equation" width="280px" height="280px"/></figure><p>
+                        <i>Figure Sigmoid function equation</i>
+                     </p></center>
+                 </p>
+                 <br>
+                 <p>
+                    Because if we have two classes in the same frame SoftMax function cannot apply to that frame.  For fix that issue we should use Sigmoid function.  Through that sigmoid function input to the function is either large positive number or large negative number. Then determine the output.  If the frame of canvas has two or more objects, by the sigmoid function can classify those objects. <br><br>
+                    Through the sigmoid function give S shaped curve in chart. Despite the fact that the graphic showed that anything may exist with a probability only between 0 and 1.
+                 </p>
+                  <p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Picture 10.png" alt="Figure: 16 Sigmoid function equation" width="380px" height="380px"/></figure><p>
+                        <i>Figure Sigmoid function chart</i>
+                     </p></center>
+                     <br>
+                     <p>
+                        Using this sigmoid function can get two outputs between 0 and 1. That a good opportunity to target more accurate predication. <br> <br>
+                        The primary objective is to accurately predict using the supplied image. The most efficient convolutional neural network is required to reach that goal. with the greatest training accuracy. Additionally, a huge dataset must be used to train the CNN network. <br>
+                        To recognize objects in this child's painting, utilize with the basic CNN network. Employ TensorFlow Kera’s network layers for a function inside in the CNN network. The primary convolutional layer is produced using a straightforward Sequential layer. Adam optimizers use to optimize the algorithm. the Imported layer and optimizers that used in model training.
+                     </p>
+                  </p>
+                  <br>
+                  <p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Picture 11.png" alt="#" width="600px" height="600px"/></figure></center>
+                    <center><figure><img src="images\Tutorial Suggestion System\Picture 12.png" alt="#" width="500px" height="500px"/></figure></center>
+                    <br>
+                    <p>
+                        There seem to be layered in the CNN model. In the first layer rescales input into image width and height. Transpose into a convolutional 2D layer whose width and height correspond to the picture dimensions and filter size is 16. Then max pooling the convolutional 2D layer output half of the resolution. In the next convolutional 2D layer with 32 filter size. Then max pooling the convolutional 2D layer. End of the convolutional 2D layer container with 64 filter size.
+                        Last convolutional 2D layer include sigmoid function. <br> <br>
+                        At the end of the sequential model layer flatten the output. Afterward, utilize dense with SoftMax function to combine input from all layers into a single output.
+                    </p>
+                    <center><figure><img src="images\Tutorial Suggestion System\Picture 13.png" alt="#" width="500px" height="500px"/></figure></center>
+                    <center><figure><img src="images\Tutorial Suggestion System\Picture 14.png" alt="#" width="200px" height="200px"/></figure></center>
+                    <br>
+                    <p>
+                        After training the model system save training weight automatically as h5 file. By calling the h5 file, the component system can leverage previously trained weights in the prediction. <br><br>
+                        <div class="titlepage">
+                            <h1>Tutorial Suggestion System Flow</h1>
+                         </div>
+                         <p>
+                            In this system work as an intermedium system between user and the system. User can access this system using Help button in the user interface once user press the button frontend reactJs framework get current frame of drawing canvas. Then system send to backend. In the backend flask server change input current frame into prediction function. Prediction function predicate using trained h5 file. Then front end <b>React JS </b> update the prediction value using <b>Ajax</b>. <br> <br>
+                            In the front-end React JS use that value and select YouTube URL Transferred value. Ones select URL then open that URL in <b> New Tab </b>of the current working web browser. 
+                         </p>
+                         <br>
+                         <center><figure><img src="images\Tutorial Suggestion System\Picture 15.png" alt="#" width="600px" height="600px"/></figure></center>
+                    </p>
+                  </p>
+                  <br>
+                <p>
+                    <div class="titlepage">
+                        <h1>Testing and Implementation </h1>
+                     </div>
+                     <p>Drawing basic shape and collecting the relevant results as a YouTube video were utilized throughout testing and deployment.</p>
+                     <br>
+                     <center><figure><img src="images\Tutorial Suggestion System\Picture 16.png" alt="#" width="600px" height="600px"/></figure></center>
+                     <br>
+                     <p>The machine learning model is evaluated with a variety of deference objects. Using the help button while drawing an umbrella on the canvas the system will immediately play a tutorial video and open a brand-new tab in one of the active online browsers. Not only umbrella user can draw any object inside the canvas and press the help button. Then system will open relevant tutorial in YouTube. </p>
+                </p>
+            </p>
+         </p>
+     </div>
+     <div class="copyright">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+               <p>© 2022 All Rights Reserved. Design by Team 2022-105 (Team 2+2)</p> 
+              </div>
+           </div>
+        </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Painting System</title>
+    <link rel="icon" type="image/x-icon" href="images\96_92.png">
+    <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body class="main-layout">
+    <header>
+        <div class="titlepage"><h2><center><div class="Skillpagetitle">Virtual Painting System</div></center></h2></div>
+     </header>
+     <div class="Dkamain">
+         <center><figure><img src="images\Virtual_paint\Picture 17.png" alt="#"/></figure></center>
+         <p>
+            Design for kids' drawings as a lightweight digital canvas, with many kids' psychology-based colour theories fonts and simple and elegant UI designs. 
+            Leapy canvas is not only a simple canvas like "paint" application but also a canvas which can see their drawing scores in real-time. Kids have two main features called "Free Hand" & "Color Book"; with these options able to draw with a free mindset and draw with leapy suggestions with the score management system. The most important part of the system is this Leap motion sensor, which provides a free hand drawing feature without hanging anything with their hands. Furthermore, the Artwork saving system is also a natural time-saving system with recent artworks,
+            which can save recent artworks with given scores and other prediction scores. The kid and parent easily understand the child's drawing and painting progress.
+         </p>
+         <br>
+         <div class="titlepage">
+            <h1>System Overview</h1>
+         </div>
+         <p>
+            This component works as an individual part with a leap motion sensor controller; this sensor controller can track and handle hand gestures via the leapy application. 
+            That sensor tracks and inputs all hand gestures to an interface, and, Interface identifies what is going on with their fingers and the currently used gestures.
+            In addition, our UI also works with sensor input; that is why we implemented this as a score-based freehand drawing application. It can draw and paint anything with a free mindset, 
+            and the application also provides an additional feature called “Color book”, which provides drawing suggestions to kids to draw on the canvas. As input, we mainly get it from huge canvases that a child draws. Line drawing, shape drawing, colour use and some numbers and tests must be analysed and saved to a database within a few minutes. Moreover,
+            the leap motion tracking sensor allows tracking details via image processing and object identification technologies.
+            <br><br>
+            In addition to that, with this leap motion tracking visualizer software we can achieve and track our hands moments accurately and see how its work with our application.
+            <br><br>
+            Finally, identified what type of elements must consider when evaluating a drawing of a children’s  
+            <br><br>
+                1.	Is everything connected well?
+                <br>
+                2.	Accuracy of drawing
+                <br>
+                3.	Color differences and blending options
+                <br>
+                4.	Child interactivity with canvas
+                <br>
+                5.	Button accuracy 
+                <br>
+                6.	Bugs and swapping errors while moving with pages
+                <br>
+         </p>
+         <br>
+         <center><figure><img src="images\Virtual_paint\Picture 18.png" alt="#"/></figure>
+         <p>
+            <i>Figure Few of Pre-Researched Materials</i>
+         </p>
+        </center>
+        <div class="titlepage">
+            <h1>UI Implementation</h1>
+         </div>
+         <br>
+         <center><figure><img src="images\Virtual_paint\Picture 1.png" alt="#" width="600" height="600"/></figure>
+            <p>
+               <i>Figure Implemented UI Design Mock</i>
+            </p>
+        </center>
+        <br>
+        <p>
+            Minimalistic UI designs always provide a good experience for the end users. 
+            This whole application was developed for children aged 6 to 12 years. 
+            Because of that have to study multiple research to do a new invention regarding kids-based UI design. 
+            Need to symbolize an ergonomic-free design for every kid at the beginning of the application. This application interface came up according to multiple kids-based types of research, including kids' interactive colour psychology.
+            Visited some preschools to get colour information and do colour and drawing-based activities with kids to recognize the right colours for the "Leapy" application interface. 
+            <br> <br> 
+            Then start to follow a child interactive colour theme with the collected data. That theme mostly came up with the above yellowish-based green and a small quantity of dark red colour scheme. 
+            After that, drawing wireframes and blueprints start to develop 
+            this UI with React JS for a better UI experience.
+        </p>
+        <br>
+        <center><figure><img src="images\Virtual_paint\Picture 2.png" alt="#" width="500" height="500"/></figure>
+            <p>
+               <i>Figure Home page Backend</i>
+            </p>
+        </center>
+        <br>
+        <p>
+            According to this screenshot “leapy” application is fully developed with React Js and every main page has a .js file and a .css page for stylizing User interface. 
+            All pages are connected with the backend, and while running the programme, that UI always passes data to the backend to retrieve everything for the score management system. 
+            That allows us to recognize the painting and to draw on the canvas.
+        </p>
+        <br>
+        <div class="titlepage">
+            <h1>Leap motion Sensor workflow</h1>
+         </div>
+         <br>
+        <center><figure><img src="images\Virtual_paint\Picture 4.png" alt="Leap Sensor identifying Area" width="500" height="500"/></figure>
+            <p>
+               <i>Figure Leap Sensor identifying Area</i>
+            </p>
+        </center>
+        <br>
+        <p>
+            From a hardware perspective, the Leap Motion Controller is very simple. 
+            The device's heart consists of two cameras and three infrared LEDs—these track infrared rays with wavelengths of 850 nanometers outside the visible light spectrum.
+            <br><br>
+            Thanks to its wide-angle lens, the device has a substantial eight cubic feet of interaction space in the shape of an inverted pyramid, 
+            the intersection of the binocular camera's field of view. The Leap Motion Controller's field of view is approximately 60 cm above the device. 
+            This range is limited by the spatial spread of his LED lights, as it becomes much harder to guess the hand position in 3D after a certain distance. 
+            The maximum current drawn through the USB connection will ultimately limit the luminosity of the LED.
+            <br><br>
+            At this point, the device's USB controller reads the sensor data into its local storage and performs the necessary resolution adjustments. 
+            This data is streamed to Leap Motion's tracking software via USB.
+        </p>
+        <br><br>
+        <center><figure><img src="images\Virtual_paint\Picture 5.jpg" alt="Sensor tracking with inbuilt camera and IR Sensors" width="500" height="500"/></figure>
+            <p>
+               <i>Figure Sensor tracking with inbuilt camera and IR Sensors</i>
+            </p>
+        </center>
+        <br><br>
+        <P>
+            The Leap Movement Controller tracks near-infrared, and the pictures appear in grayscale. 
+            Strong sources or reflectors of infrared light can make hands and fingers challenging to recognize and follow hands and fingers.
+             We have essentially moved forward with v2 following a continuous handle.
+        </P>
+        <br>
+        <div class="titlepage">
+            <h1>Leap motion software workflow</h1>
+         </div>
+         <br>
+         <center><figure><img src="images\Virtual_paint\Picture 6.jpg" alt="Leap motion real-time tracking" width="500" height="500"/></figure>
+            <p>
+               <i>Figure Leap motion real-time tracking</i>
+            </p>
+        </center>
+        <br><br>
+        <p>
+            The Leap Tracking software, Tracking Movement Benefit, is the computer program on a computer that forms the pictures. 
+            After compensating for foundation objects (such as heads) and surrounding natural lighting, the pictures are analyzed to remake a 3D representation of what the gadget sees. 
+            Next, the following layer matches the information to extricate the following data, such as fingers and apparatuses. 
+            Calculations translate the 3D information and induce the positions of impeded objects. Sifting methods are connected to guarantee smooth transient coherence of the information. 
+            The Leap Movement Benefit then bolsters the comes about — communicated as an arrangement of outlines, or depictions, 
+            containing all of the following information — into a transport protocol. Through this convention, the benefit communicates with the Jump Movement Control Board and local and web client libraries through a nearby attachment association.
+            The client library (leapy.Ai) organizes the information into an object-oriented API structure, oversees outline history, and gives partner capacities and classes. From there, 
+            the application rationale ties into the leap Movement input, permitting a motion-controlled interactive encounter.
+        </p>
+        <br>
+        <div class="titlepage"><h1>Hardware requirements</h1></div>
+        <p>
+            Although this is a simple and minimalist project, when it comes to hardware parts need to assemble or purchase a few things for use in this compact light white application.
+            <br><br>
+            •	A LED or LCD Computer based smart TV (Size is matter)
+        </p>
+        <br>
+        <center><figure><img src="images\Virtual_paint\Picture 7.jpg" alt="Computer connected Smart TV" width="500" height="500"/></figure>
+            <p>
+               <i>Figure Computer connected Smart TV</i>
+            </p>
+        </center>
+        <br>
+        <p>
+            An intelligent android TV is a better choice for this “leapy” application because when it comes to drawing, smart TV is getting bigger and bigger,
+            kids easily view drawing screens widely, and giant screens are more interactive for all ages. 
+            Workflows and parents also can see the drawing and painting without going to kids near the area. 
+            <br><br>
+            •	Internet Connection 
+            <center><figure><img src="images\Virtual_paint\Picture 8.jpg" alt="Fiber Internet Connection" width="500" height="500"/></figure>
+                <p>
+                   <i>Figure Fiber Internet Connection</i>
+                </p>
+            </center>
+            <br>
+        </p>
+        <p>
+            Most parents use a fibre optic internet connection for their internet solution, but some still use a 4G LTE Connection. However, it does not always matter. 
+            Leapy products always work with both connections. However, we all know a Fibre connection is faster than a 4G connection, same as that theory; 
+            if a parent uses a fibre connection for an application, then the application generates scores faster than a 4G connection generating speed. With Fibre, leapy works well, 
+            and as product developers, we recommend using a fibre connection that is better than a 4G internet connection for better results.
+            <br><br>
+            •	Leap motion sensor or graphic Tablet 
+            <center><figure><img src="images\Virtual_paint\Picture 9.jpg" alt="Leap Motion Sensor Controller" width="500" height="500"/></figure>
+                <p>
+                   <i>Figure Leap Motion Sensor Controller</i>
+                </p>
+            </center>
+            <br>
+        </p>
+        <p>
+            The Leap Motion Controller is a small device that connects with a PC or Mac and enables users to manipulate digital objects with hand motions.
+            1 Working with other hardware, the Leap Motion controller adds a new way to interact with the digital world.
+            2 Programs designed to interpret gesture-based computing allow the user to play games, create designs, and learn in a ‘hands-on’ way.
+            <br>
+            <br>
+            <center><figure><img src="images\Virtual_paint\Picture 10.jpg" alt="Graphic Tablet" width="500" height="500"/></figure>
+                <p>
+                   <i>Figure Graphic Tablet</i>
+                </p>
+            </center>
+            <br>
+        </p>
+        <p>
+            A graphics tablet is an input device the user can use to draw images on a computer screen without using a mouse or keyboard. 
+            It consists of a flat, touch-sensitive pad and a drawing device, usually a pen or pen type. Also known as a drawing tablet or drawing pad,
+            this tablet is ideal for artists and anyone who wants to manipulate an on-screen cursor with the natural feel of a pen-like object.
+            If someone can afford a leap Motion Controller, they can move to a graphics tablet at a low cost.
+            Both devices can quickly get in touch with the leapy drawing application, and the whole system works simultaneously.
+            <br>
+            <br>
+            <div class="titlepage"><h1>Software requirements</h1></div>
+            <center><figure><img src="images\Virtual_paint\Picture 11.jpg" alt="Android Lolipop" width="500" height="500"/></figure>
+                <p>
+                   <i>Figure Android Lolipop</i>
+                </p>
+            </center>
+        </p>
+        <br>
+        <p>
+            The complete application only allows it to run on android smart TVs. 
+            Therefore the android operating system should be Android 5.0 Lollipop or above for a better experience and score synchronization. 
+            <br>
+            <br>
+            <center><figure><img src="images\Virtual_paint\Picture1.jpg" alt="Windows10" width="200" height="200"/></figure>
+                    <figure><img src="images\Virtual_paint\Picture2.jpg" alt="IOS" width="200" height="200"/></figure>
+                <p>
+                   <i>Figure Operating Systems</i>
+                </p>
+            </center>
+        </p>
+        <br>
+        <p>
+            In addition, the “Leapy” application also works with Windows and mac OS. Through the chrome browser, which we provide a hosting option, 
+            users can google and visit the website, then start this application as a standard desktop application because both can access the chrome browser through the machine.
+        </p>
+    </div>
+    <div class="copyright">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+               <p>© 2022 All Rights Reserved. Design by Team 2022-105 (Team 2+2)</p> 
+              </div>
+           </div>
+        </div>
+     </div>
+</body>
+</html>
